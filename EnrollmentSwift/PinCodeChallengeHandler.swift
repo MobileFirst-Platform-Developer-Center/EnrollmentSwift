@@ -78,7 +78,7 @@ class PinCodeChallengeHandler : WLChallengeHandler {
                 print("\(self.challengeHandlerName): logout failure - \(error.description)")
             } else {
                 print("\(self.challengeHandlerName): logout success)")
-                NSNotificationCenter.defaultCenter().postNotificationName(ACTION_USERLOGIN_LOGOUT_SUCCESS , object: self)
+                NSNotificationCenter.defaultCenter().postNotificationName(ACTION_PINCODE_LOGOUT_SUCCESS , object: self)
             }
         }
     }

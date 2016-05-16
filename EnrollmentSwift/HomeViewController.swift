@@ -64,20 +64,24 @@ class HomeViewController: UIViewController {
                 print("enroll error: \(error.description)")
             } else {
                 print("enroll Success")
-                let alert = UIAlertController(title: "Set Pin Code", message: "", preferredStyle: .Alert)
-                alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
-                    textField.placeholder = "CHOOSE A PIN CODE"
-                    textField.keyboardType = .NumberPad
-                }
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                    let pinTextField = alert.textFields![0] as UITextField
-                    self.setPinCode(pinTextField.text!)
-                }))
-                self.presentViewController(alert,
-                                           animated: true,
-                                           completion: nil)
+                self.setPinCodeAlert("")
             }
         }
+    }
+    
+    func setPinCodeAlert(msg: String){
+        let alert = UIAlertController(title: "Set Pin Code", message: msg, preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = "CHOOSE A PIN CODE"
+            textField.keyboardType = .NumberPad
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let pinTextField = alert.textFields![0] as UITextField
+            self.setPinCode(pinTextField.text!)
+        }))
+        self.presentViewController(alert,
+                                   animated: true,
+                                   completion: nil)
     }
     
     func logout(){
@@ -100,15 +104,19 @@ class HomeViewController: UIViewController {
     }
     
     func setPinCode(pinCode: String){
-        let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/setPinCode/" + pinCode), method: WLHttpMethodPost)
-        request.sendWithCompletionHandler { (response, error) in
-            if (error != nil){
-                print("setPinCode error: \(error.description)")
-            } else {
-                print("setPinCode status: \(response.status)")
-                self.getBalanceBtn.hidden = false
-                self.getTransactionsBtn.hidden = false
-                self.navigationItem.rightBarButtonItem = self.logoutBtn
+        if (pinCode == ""){
+            self.setPinCodeAlert("Pincode is required, please try again")
+        } else {
+            let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/setPinCode/" + pinCode), method: WLHttpMethodPost)
+            request.sendWithCompletionHandler { (response, error) in
+                if (error != nil){
+                    print("setPinCode error: \(error.description)")
+                } else {
+                    print("setPinCode status: \(response.status)")
+                    self.getBalanceBtn.hidden = false
+                    self.getTransactionsBtn.hidden = false
+                    self.navigationItem.rightBarButtonItem = self.logoutBtn
+                }
             }
         }
     }

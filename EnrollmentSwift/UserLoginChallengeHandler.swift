@@ -77,6 +77,7 @@ class UserLoginChallengeHandler : WLChallengeHandler {
             if (error != nil){
                 print("\(self.challengeHandlerName): logout failure - \(error.description)")
             } else {
+                print("\(self.challengeHandlerName): logout success)")
                 NSNotificationCenter.defaultCenter().postNotificationName(ACTION_USERLOGIN_LOGOUT_SUCCESS , object: self)
                 self.isChallenged = false
             }
