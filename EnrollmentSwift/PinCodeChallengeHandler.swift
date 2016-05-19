@@ -21,7 +21,6 @@ class PinCodeChallengeHandler : WLChallengeHandler {
     
     let challengeHandlerName = "PinCodeChallengeHandler"
     let securityCheckName = "EnrollmentPinCode"
-    var isChallenged = false
     
     override init() {
         super.init(securityCheck: securityCheckName)
@@ -34,19 +33,18 @@ class PinCodeChallengeHandler : WLChallengeHandler {
     
     override func handleChallenge(challenge: [NSObject : AnyObject]!) {
         print("\(self.challengeHandlerName): handleChallenge - \(challenge)")
-        isChallenged = true
-        var errorMsg: String
+        var msg: String
         if (challenge["errorMsg"] is NSNull) {
-            errorMsg = "Enter PIN code:"
+            msg = "Enter PIN code:"
         } else{
-            errorMsg = challenge["errorMsg"] as! String
+            msg = challenge["errorMsg"] as! String
+            msg += "\nRemaining attempts: \(challenge["remainingAttempts"]!)"
         }
-        NSNotificationCenter.defaultCenter().postNotificationName(ACTION_PINCODE_CHALLENGE_RECEIVED , object: self, userInfo: ["errorMsg":errorMsg])
+        NSNotificationCenter.defaultCenter().postNotificationName(ACTION_PINCODE_CHALLENGE_RECEIVED , object: self, userInfo: ["msg":msg])
     }
     
     override func handleFailure(failure: [NSObject : AnyObject]!) {
         print("\(self.challengeHandlerName): handleFailure - \(failure)")
-        isChallenged = false
         var errorMsg: String
         if (failure["failure"] is NSNull) {
             errorMsg = "Unknown error"
@@ -58,7 +56,6 @@ class PinCodeChallengeHandler : WLChallengeHandler {
     
     override func handleSuccess(success: [NSObject : AnyObject]!) {
         print("\(self.challengeHandlerName): handleSuccess - \(success)")
-        isChallenged = false
     }
     
     func challengeSubmitAnswer(notification: NSNotification){

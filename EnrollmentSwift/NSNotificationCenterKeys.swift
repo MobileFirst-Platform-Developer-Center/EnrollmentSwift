@@ -18,7 +18,7 @@ let ACTION_PINCODE_CHALLENGE_RECEIVED = "com.sample.enrollmentswift.notify.pinco
 let ACTION_PINCODE_SUBMIT_ANSWER = "com.sample.enrollmentswift.notify.pincode.submit.answer"
 let ACTION_PINCODE_CHALLENGE_CANCEL = "com.sample.enrollmentswift.notify.pincode.challenge.cancel"
 let ACTION_PINCODE_LOGOUT_SUCCESS = "com.sample.enrollmentswift.notify.pincode.logout.success"
-let ACTION_PINCODE_CHALLENGE_FAILURE = "com.sample.enrollmentswift.notify.pincode.challenge.failure" //??
+let ACTION_PINCODE_CHALLENGE_FAILURE = "com.sample.enrollmentswift.notify.pincode.challenge.failure"
 
 let ACTION_ISENROLLED_LOGOUT_SUCCESS = "com.sample.enrollmentswift.notify.isenrolled.logout.success"
 

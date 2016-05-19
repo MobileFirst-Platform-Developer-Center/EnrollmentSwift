@@ -57,6 +57,8 @@ class HomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(deletePinCode), name: ACTION_ISENROLLED_LOGOUT_SUCCESS, object: nil)
     }
     
+
+    
     func enroll(){
         self.resultTxt.text = ""
         WLAuthorizationManager.sharedInstance().obtainAccessTokenForScope("setPinCode") { (token, error) in
@@ -127,7 +129,7 @@ class HomeViewController: UIViewController {
     
     func showPinCodePopup(notification: NSNotification){
         let alert = UIAlertController(title: "Pin Code",
-                                      message: notification.userInfo!["errorMsg"] as? String,
+                                      message: notification.userInfo!["msg"] as? String,
                                       preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
             textField.placeholder = "PIN CODE"
