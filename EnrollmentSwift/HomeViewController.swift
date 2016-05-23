@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showLoginPage), name: ACTION_USERLOGIN_CHALLENGE_RECEIVED, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showPinCodePopup(_:)), name: ACTION_PINCODE_CHALLENGE_RECEIVED, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(enrollAfterFailure(_:)), name: ACTION_PINCODE_CHALLENGE_FAILURE, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(deletePinCode), name: ACTION_ISENROLLED_LOGOUT_SUCCESS, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(isEnrolledLogout), name: ACTION_PINCODE_LOGOUT_SUCCESS, object: nil)
     }
     
 
@@ -80,6 +80,9 @@ class HomeViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             let pinTextField = alert.textFields![0] as UITextField
             self.setPinCode(pinTextField.text!)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+            self.logout()
         }))
         self.presentViewController(alert,
                                    animated: true,
@@ -196,6 +199,18 @@ class HomeViewController: UIViewController {
     
     override func viewDidDisappear(animated: Bool) {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func isEnrolledLogout(){
+        print("IsEnrolled: logout")
+        WLAuthorizationManager.sharedInstance().logout("IsEnrolled") { (error) -> Void in
+            if (error != nil){
+                print("IsEnrolled: logout failure - \(error.description)")
+            } else {
+                print("IsEnrolled: logout success)")
+                self.deletePinCode()
+            }
+        }
     }
     
 }

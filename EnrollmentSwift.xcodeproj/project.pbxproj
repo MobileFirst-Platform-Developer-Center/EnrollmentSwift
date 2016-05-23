@@ -17,7 +17,6 @@
 		82C2FAA41CE0A98B005CADAC /* NSNotificationCenterKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2FAA31CE0A98B005CADAC /* NSNotificationCenterKeys.swift */; };
 		82C2FAA61CE0AB11005CADAC /* UserLoginChallengeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2FAA51CE0AB11005CADAC /* UserLoginChallengeHandler.swift */; };
 		82C2FAA81CE0E475005CADAC /* PinCodeChallengeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2FAA71CE0E475005CADAC /* PinCodeChallengeHandler.swift */; };
-		82C2FAAA1CE1FA0E005CADAC /* IsEnrolledChallengeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2FAA91CE1FA0E005CADAC /* IsEnrolledChallengeHandler.swift */; };
 		E6F2B2FD5B63C86D3C908DBA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5BC9A1D22C99D968733BD5 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 		82C2FAA31CE0A98B005CADAC /* NSNotificationCenterKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterKeys.swift; sourceTree = "<group>"; };
 		82C2FAA51CE0AB11005CADAC /* UserLoginChallengeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginChallengeHandler.swift; sourceTree = "<group>"; };
 		82C2FAA71CE0E475005CADAC /* PinCodeChallengeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeChallengeHandler.swift; sourceTree = "<group>"; };
-		82C2FAA91CE1FA0E005CADAC /* IsEnrolledChallengeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsEnrolledChallengeHandler.swift; sourceTree = "<group>"; };
 		9E8B2400E2A57BEA43307545 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +86,6 @@
 				8276AD0E1CDA3D3600A2A303 /* LoginViewController.swift */,
 				82C2FAA51CE0AB11005CADAC /* UserLoginChallengeHandler.swift */,
 				82C2FAA71CE0E475005CADAC /* PinCodeChallengeHandler.swift */,
-				82C2FAA91CE1FA0E005CADAC /* IsEnrolledChallengeHandler.swift */,
 				820F32791CD9044D00CACFBF /* Main.storyboard */,
 				820F327C1CD9044D00CACFBF /* Assets.xcassets */,
 				820F327E1CD9044D00CACFBF /* LaunchScreen.storyboard */,
@@ -235,7 +232,6 @@
 				82C2FAA81CE0E475005CADAC /* PinCodeChallengeHandler.swift in Sources */,
 				82C2FAA41CE0A98B005CADAC /* NSNotificationCenterKeys.swift in Sources */,
 				820F32761CD9044D00CACFBF /* AppDelegate.swift in Sources */,
-				82C2FAAA1CE1FA0E005CADAC /* IsEnrolledChallengeHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
