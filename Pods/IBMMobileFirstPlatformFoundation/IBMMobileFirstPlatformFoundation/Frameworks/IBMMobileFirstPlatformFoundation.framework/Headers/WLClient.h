@@ -119,10 +119,9 @@ extern NSMutableDictionary *piggyBackData;
 -(void) invokeProcedure:(WLProcedureInvocationData *)invocationData withDelegate:(id <WLDelegate>)delegate options:(NSDictionary *)options;
 
 /**
- * You can use this method to register a custom Challenge Handler, which is a class that inherits from ChallengeHandler. See example 1: Adding a custom Challenge Handler.
- * You can also use this method to override the default Remote Disable / Notify Challenge Handler, by registering a class that inherits from WLChallengeHandler. See example <a href=""> link  2: Customizing the Remote Disable / Notify.</a>
+ * You can use this method to register a challenge handler, which is a class that inherits either from GatewayChallengeHandler or SecurityCheckChallengeHandler.
  *
- * @param challengeHandler The Challenge Handler to register.
+ * @param challengeHandler The challenge handler to register.
  */
 -(void) registerChallengeHandler: (BaseChallengeHandler *) challengeHandler;
 
@@ -180,8 +179,6 @@ extern NSMutableDictionary *piggyBackData;
  * <li>The responsibility for checking the validity of the URL is on the developer.</li>
  * <li>For hybrid applications: This call does not clean the HTTP client context saved in JavaScript.
  * For hybrid applications, it is recommended to set the server URL by using the following JavaScript function: <code>WL.App.setServerUrl</code>.</li>
- * <li>If the app uses push notification, it is the developer's responsibility to unsubscribe from the previous server and subscribe to the new server.
- * For more information on push notification, see <code>MFPPush</code>.</li>
  * </ul>
  *
  * Example:

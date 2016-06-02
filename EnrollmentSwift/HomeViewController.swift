@@ -154,6 +154,9 @@ class HomeViewController: UIViewController {
     func enrollAfterFailure(notification: NSNotification){
         let failureMsg = notification.userInfo!["errorMsg"] as? String
         if (failureMsg == "Account blocked"){
+            self.getBalanceBtn.hidden = true
+            self.getTransactionsBtn.hidden = true
+            self.navigationItem.rightBarButtonItem = self.enrollBtn
             enroll()
         }
     }

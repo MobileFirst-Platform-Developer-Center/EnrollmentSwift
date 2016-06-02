@@ -17,7 +17,7 @@
 import Foundation
 import IBMMobileFirstPlatformFoundation
 
-class UserLoginChallengeHandler : WLChallengeHandler {
+class UserLoginChallengeHandler : SecurityCheckChallengeHandler {
     let challengeHandlerName = "UserLoginChallengeHandler"
     let securityCheckName = "EnrollmentUserLogin"
     var isChallenged = false
@@ -58,7 +58,7 @@ class UserLoginChallengeHandler : WLChallengeHandler {
         let password = notification.userInfo!["password"] as! String
         if(!self.isChallenged){
             print("\(self.challengeHandlerName): login")
-            WLAuthorizationManager.sharedInstance().login(self.securityCheck, withCredentials: ["username": username, "password": password]) { (error) -> Void in
+            WLAuthorizationManager.sharedInstance().login(securityCheckName, withCredentials: ["username": username, "password": password]) { (error) -> Void in
                 if(error != nil){
                     print("\(self.challengeHandlerName): login failure - \(error.description)")
                 } else {
