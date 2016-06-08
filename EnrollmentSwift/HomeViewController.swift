@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     var unenrollBtn:UIBarButtonItem!
     var enrollBtn:UIBarButtonItem!
     
-    var userName = ""
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
                 print("isEnrolled response: \(response.responseText)")
             } else {
                 print("isEnrolled response: \(response.responseText)")
-                self.changeUIState("Hello, " + self.userName, buttonsState: false)
+                self.changeUIState("Hello, " + self.defaults.stringForKey("displayName")!, buttonsState: false)
             }
         }
     }
@@ -94,9 +94,9 @@ class HomeViewController: UIViewController {
         let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/unenroll"), method: WLHttpMethodDelete)
         request.sendWithCompletionHandler { (response, error) in
             if (error != nil){
-                print("deletePinCode error: \(error.description)")
+                print("unenroll error: \(error.description)")
             } else {
-                print("deletePinCode status: \(response.status)")
+                print("unenroll status: \(response.status)")
                 NSNotificationCenter.defaultCenter().postNotificationName(ACTION_LOGOUT, object: self)
             }
         }
@@ -112,8 +112,8 @@ class HomeViewController: UIViewController {
                     print("setPinCode error: \(error.description)")
                 } else {
                     print("setPinCode status: \(response.status)")
-                    self.userName = response.responseJSON["userName"] as! String
-                    self.changeUIState("Hello, " + self.userName, buttonsState: false)
+                    self.defaults.setObject(response.responseJSON["userName"] as! String, forKey: "displayName")
+                    self.changeUIState("Hello, " + self.defaults.stringForKey("displayName")!, buttonsState: false)
                 }
             }
         }
