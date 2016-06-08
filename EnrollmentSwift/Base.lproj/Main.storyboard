@@ -81,14 +81,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8D-L2-9Gk">
-                                <rect key="frame" x="16" y="183" width="114" height="30"/>
+                                <rect key="frame" x="16" y="219" width="114" height="30"/>
                                 <state key="normal" title="Get transactions"/>
                                 <connections>
                                     <action selector="getTransactions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mbV-lq-8kG"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1tN-wu-cpB">
-                                <rect key="frame" x="16" y="282" width="288" height="49"/>
+                                <rect key="frame" x="16" y="318" width="288" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -100,41 +100,49 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dY-Sy-dgs">
-                                <rect key="frame" x="16" y="89" width="105" height="30"/>
+                                <rect key="frame" x="16" y="125" width="105" height="30"/>
                                 <state key="normal" title="Get public data"/>
                                 <connections>
                                     <action selector="getPublicData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l1E-WV-ONz"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAd-w4-X3j">
-                                <rect key="frame" x="16" y="136" width="83" height="30"/>
+                                <rect key="frame" x="16" y="172" width="83" height="30"/>
                                 <state key="normal" title="Get balance"/>
                                 <connections>
                                     <action selector="getBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kce-js-3xB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Response:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kma-zd-Gw2">
-                                <rect key="frame" x="16" y="252" width="80" height="21"/>
+                                <rect key="frame" x="16" y="288" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulc-Nv-l7T">
+                                <rect key="frame" x="16" y="82" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mAd-w4-X3j" firstAttribute="top" secondItem="1dY-Sy-dgs" secondAttribute="bottom" constant="17" id="5Qy-PS-9av"/>
-                            <constraint firstItem="mAd-w4-X3j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6TG-Qq-kOD"/>
-                            <constraint firstItem="c8D-L2-9Gk" firstAttribute="top" secondItem="mAd-w4-X3j" secondAttribute="bottom" constant="17" id="7HE-bA-Ijs"/>
-                            <constraint firstItem="c8D-L2-9Gk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="96b-CC-eBT"/>
-                            <constraint firstItem="kma-zd-Gw2" firstAttribute="top" secondItem="c8D-L2-9Gk" secondAttribute="bottom" constant="39" id="JvO-XA-ufF"/>
-                            <constraint firstItem="1tN-wu-cpB" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="N5I-3w-OWh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1tN-wu-cpB" secondAttribute="bottom" constant="237" id="bo8-xn-IdQ"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="kma-zd-Gw2" secondAttribute="leading" id="fRY-rx-6Cw"/>
-                            <constraint firstItem="1dY-Sy-dgs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fln-em-lZc"/>
-                            <constraint firstItem="1dY-Sy-dgs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="ua8-9d-Ew6"/>
-                            <constraint firstItem="1tN-wu-cpB" firstAttribute="top" secondItem="kma-zd-Gw2" secondAttribute="bottom" constant="9" id="x7h-Os-KBp"/>
-                            <constraint firstItem="1tN-wu-cpB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="y7B-V5-bY3"/>
-                            <constraint firstItem="1tN-wu-cpB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zQr-Q9-Q3l"/>
+                            <constraint firstItem="Ulc-Nv-l7T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4Ye-NC-RgD"/>
+                            <constraint firstItem="kma-zd-Gw2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7J6-cw-6aA"/>
+                            <constraint firstItem="1dY-Sy-dgs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="D2Q-Vn-hou"/>
+                            <constraint firstItem="mAd-w4-X3j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="GHA-68-TPM"/>
+                            <constraint firstItem="1tN-wu-cpB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hgj-Op-zAV"/>
+                            <constraint firstItem="Ulc-Nv-l7T" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="LyV-hD-FPn"/>
+                            <constraint firstItem="c8D-L2-9Gk" firstAttribute="top" secondItem="mAd-w4-X3j" secondAttribute="bottom" constant="17" id="QA9-3e-BCW"/>
+                            <constraint firstItem="kma-zd-Gw2" firstAttribute="top" secondItem="c8D-L2-9Gk" secondAttribute="bottom" constant="39" id="bqq-PM-C0S"/>
+                            <constraint firstItem="1tN-wu-cpB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cMf-8M-A3t"/>
+                            <constraint firstItem="1dY-Sy-dgs" firstAttribute="top" secondItem="Ulc-Nv-l7T" secondAttribute="bottom" constant="22" id="g0D-tu-zUS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1tN-wu-cpB" secondAttribute="bottom" constant="201" id="hXd-1n-128"/>
+                            <constraint firstItem="mAd-w4-X3j" firstAttribute="top" secondItem="1dY-Sy-dgs" secondAttribute="bottom" constant="17" id="mTa-PF-Snm"/>
+                            <constraint firstItem="1tN-wu-cpB" firstAttribute="top" secondItem="kma-zd-Gw2" secondAttribute="bottom" constant="9" id="qzH-5d-H5X"/>
+                            <constraint firstItem="c8D-L2-9Gk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sVe-se-RaH"/>
+                            <constraint firstItem="1tN-wu-cpB" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="x4Q-bh-usY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Enrollment" id="Jrz-BF-Gtl"/>
@@ -142,6 +150,7 @@
                     <connections>
                         <outlet property="getBalanceBtn" destination="mAd-w4-X3j" id="W1Y-iQ-9VM"/>
                         <outlet property="getTransactionsBtn" destination="c8D-L2-9Gk" id="1PZ-o2-P7h"/>
+                        <outlet property="helloUserTxt" destination="Ulc-Nv-l7T" id="BI5-9h-mt4"/>
                         <outlet property="resultTxt" destination="1tN-wu-cpB" id="2Eb-Dc-ErS"/>
                         <segue destination="Ng9-js-1OV" kind="show" identifier="login" id="HhG-Kb-Yfc"/>
                     </connections>

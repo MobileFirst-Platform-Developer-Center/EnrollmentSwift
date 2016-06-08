@@ -19,12 +19,15 @@ import IBMMobileFirstPlatformFoundation
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var helloUserTxt: UILabel!
     @IBOutlet weak var resultTxt: UITextView!
     @IBOutlet weak var getBalanceBtn: UIButton!
     @IBOutlet weak var getTransactionsBtn: UIButton!
     
-    var logoutBtn:UIBarButtonItem!
+    var unenrollBtn:UIBarButtonItem!
     var enrollBtn:UIBarButtonItem!
+    
+    var userName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,7 @@ class HomeViewController: UIViewController {
         enrollBtn = UIBarButtonItem(title: "Enroll", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.enroll))
         self.navigationItem.rightBarButtonItem = enrollBtn
         
-        logoutBtn = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.logout))
+        unenrollBtn = UIBarButtonItem(title: "Unenroll", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.unenroll))
         
         let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/isEnrolled"), method: WLHttpMethodGet)
         request.sendWithCompletionHandler { (response, error) in
@@ -42,9 +45,7 @@ class HomeViewController: UIViewController {
                 print("isEnrolled response: \(response.responseText)")
             } else {
                 print("isEnrolled response: \(response.responseText)")
-                self.getBalanceBtn.hidden = false
-                self.getTransactionsBtn.hidden = false
-                self.navigationItem.rightBarButtonItem = self.logoutBtn
+                self.changeUIState("Hello, " + self.userName, buttonsState: false)
             }
         }
     }
@@ -82,28 +83,21 @@ class HomeViewController: UIViewController {
             self.setPinCode(pinTextField.text!)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
-            self.logout()
+            self.unenroll()
         }))
         self.presentViewController(alert,
                                    animated: true,
                                    completion: nil)
     }
     
-    func logout(){
-        self.resultTxt.text = ""
-        NSNotificationCenter.defaultCenter().postNotificationName(ACTION_LOGOUT, object: self)
-    }
-    
-    func deletePinCode(){
-        let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/deletePinCode"), method: WLHttpMethodDelete)
+    func unenroll(){
+        let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/unenroll"), method: WLHttpMethodDelete)
         request.sendWithCompletionHandler { (response, error) in
             if (error != nil){
                 print("deletePinCode error: \(error.description)")
             } else {
                 print("deletePinCode status: \(response.status)")
-                self.getBalanceBtn.hidden = true
-                self.getTransactionsBtn.hidden = true
-                self.navigationItem.rightBarButtonItem = self.enrollBtn
+                NSNotificationCenter.defaultCenter().postNotificationName(ACTION_LOGOUT, object: self)
             }
         }
     }
@@ -118,9 +112,8 @@ class HomeViewController: UIViewController {
                     print("setPinCode error: \(error.description)")
                 } else {
                     print("setPinCode status: \(response.status)")
-                    self.getBalanceBtn.hidden = false
-                    self.getTransactionsBtn.hidden = false
-                    self.navigationItem.rightBarButtonItem = self.logoutBtn
+                    self.userName = response.responseJSON["userName"] as! String
+                    self.changeUIState("Hello, " + self.userName, buttonsState: false)
                 }
             }
         }
@@ -154,16 +147,14 @@ class HomeViewController: UIViewController {
     func enrollAfterFailure(notification: NSNotification){
         let failureMsg = notification.userInfo!["errorMsg"] as? String
         if (failureMsg == "Account blocked"){
-            self.getBalanceBtn.hidden = true
-            self.getTransactionsBtn.hidden = true
-            self.navigationItem.rightBarButtonItem = self.enrollBtn
+            self.changeUIState("Hello, Guest", buttonsState: true)
             enroll()
         }
     }
 
     @IBAction func getPublicData(sender: AnyObject) {
         self.resultTxt.text = ""
-        let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/publicData"), method: WLHttpMethodGet)
+        let request = WLResourceRequest(URL: NSURL(string: "/adapters/ResourceAdapter/publicData"), method: WLHttpMethodGet)
         request.sendWithCompletionHandler { (response, error) in
             if (error != nil){
                 print("getPublicData error: \(error.description)")
@@ -176,7 +167,7 @@ class HomeViewController: UIViewController {
 
     @IBAction func getBalance(sender: AnyObject) {
         self.resultTxt.text = ""
-        let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/balance"), method: WLHttpMethodGet)
+        let request = WLResourceRequest(URL: NSURL(string: "/adapters/ResourceAdapter/balance"), method: WLHttpMethodGet)
         request.sendWithCompletionHandler { (response, error) in
             if (error != nil){
                 print("getBalance error: \(error.description)")
@@ -189,7 +180,7 @@ class HomeViewController: UIViewController {
 
     @IBAction func getTransactions(sender: AnyObject) {
         self.resultTxt.text = ""
-        let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/transactions"), method: WLHttpMethodGet)
+        let request = WLResourceRequest(URL: NSURL(string: "/adapters/ResourceAdapter/transactions"), method: WLHttpMethodGet)
         request.sendWithCompletionHandler { (response, error) in
             if (error != nil){
                 print("getTransactions error: \(error.description)")
@@ -211,8 +202,20 @@ class HomeViewController: UIViewController {
                 print("IsEnrolled: logout failure - \(error.description)")
             } else {
                 print("IsEnrolled: logout success)")
-                self.deletePinCode()
+                self.changeUIState("Hello, Guest", buttonsState: true)
             }
+        }
+    }
+    
+    func changeUIState(helloUser: String, buttonsState: Bool){
+        self.resultTxt.text = ""
+        self.helloUserTxt.text = helloUser
+        self.getBalanceBtn.hidden = buttonsState
+        self.getTransactionsBtn.hidden = buttonsState
+        if (buttonsState == true){
+            self.navigationItem.rightBarButtonItem = self.enrollBtn
+        } else {
+            self.navigationItem.rightBarButtonItem = self.unenrollBtn
         }
     }
     
