@@ -14,11 +14,7 @@
 		</data>
 		<key>Headers/GatewayChallengeHandler.h</key>
 		<data>
-		c/6VIanlXJLH73xykVZRshSSd/k=
-		</data>
-		<key>Headers/IBMMobileFirstPlatformFoundation-Swift.h</key>
-		<data>
-		934kRdgfhM79wnhoq8WF5pQsx+0=
+		r89egRko3EJOLEiqopvrRTqoi3A=
 		</data>
 		<key>Headers/IBMMobileFirstPlatformFoundation.h</key>
 		<data>
@@ -34,7 +30,7 @@
 		</data>
 		<key>Headers/SecurityCheckChallengeHandler.h</key>
 		<data>
-		Mtn7gocc9pJB/cz0uR49odCno8g=
+		sS9BwZU2DjNnVZiRO1DslE8A4LI=
 		</data>
 		<key>Headers/WLAnalytics.h</key>
 		<data>
@@ -46,7 +42,7 @@
 		</data>
 		<key>Headers/WLClient.h</key>
 		<data>
-		aPqFbiDgb2cQb6wunwVw5WKIPKI=
+		e4WRxI8AqduSawESti9ERNmh4P8=
 		</data>
 		<key>Headers/WLCookieExtractor.h</key>
 		<data>
@@ -74,7 +70,7 @@
 		</data>
 		<key>Headers/WLResourceRequest.h</key>
 		<data>
-		nhe9LijL1NymMh9hZX8bJrWzOTE=
+		gq8y63ln+vI7GV/dG8TDcXIrkQs=
 		</data>
 		<key>Headers/WLResponse.h</key>
 		<data>
@@ -98,27 +94,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VegZ8SDsoSXx9urAJ3VfDDIA//8=
-		</data>
-		<key>Modules/IBMMobileFirstPlatformFoundation.swiftmodule/arm.swiftdoc</key>
-		<data>
-		f6eHo2K7uS536B954SD9i6RglL8=
-		</data>
-		<key>Modules/IBMMobileFirstPlatformFoundation.swiftmodule/arm.swiftmodule</key>
-		<data>
-		4zJIvBJZ3905+Zeeq8wa38a2F8w=
-		</data>
-		<key>Modules/IBMMobileFirstPlatformFoundation.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		7BUlQBrhUQ77wbgVsUxliml4eHA=
-		</data>
-		<key>Modules/IBMMobileFirstPlatformFoundation.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		d14tCWlK6GligJDk6YCjeEi8hEY=
+		yDcbzAp/V15aLAtbQYcELq8HH8A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		zco3ZstpKlHnpbZPtF5tX0hzk+s=
+		V1D1PLP1UAT/wWs6n+c7l4CWvYY=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -149,22 +129,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			c/6VIanlXJLH73xykVZRshSSd/k=
+			r89egRko3EJOLEiqopvrRTqoi3A=
 			</data>
 			<key>hash2</key>
 			<data>
-			RWp2Z0z+j/pAZKI4XJRs0MdG4dDAjB6aNbtWpXZNxJ8=
-			</data>
-		</dict>
-		<key>Headers/IBMMobileFirstPlatformFoundation-Swift.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			934kRdgfhM79wnhoq8WF5pQsx+0=
-			</data>
-			<key>hash2</key>
-			<data>
-			dGNB8wyekh4EkhO1GNqUFojWpGgbhOZZtO99jgy05TA=
+			v+Mt8R0u/AfSDuZIFLxFG3Q9P3Exc+aaiHfK6Lfvl0o=
 			</data>
 		</dict>
 		<key>Headers/IBMMobileFirstPlatformFoundation.h</key>
@@ -204,11 +173,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Mtn7gocc9pJB/cz0uR49odCno8g=
+			sS9BwZU2DjNnVZiRO1DslE8A4LI=
 			</data>
 			<key>hash2</key>
 			<data>
-			0qdj6DC8QnnFsZuJsC9s1gxemoocB4OSfigISv0xvKU=
+			LoMoYXwX00Rs9XBFyxCaZpzLdz/c0yVEn4gg/DQjK4U=
 			</data>
 		</dict>
 		<key>Headers/WLAnalytics.h</key>
@@ -237,11 +206,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aPqFbiDgb2cQb6wunwVw5WKIPKI=
+			e4WRxI8AqduSawESti9ERNmh4P8=
 			</data>
 			<key>hash2</key>
 			<data>
-			mD25xyIztkhl3DlO6Hz9pBrxFlaWCHE1g0iHIkschWM=
+			D+47EXjtWyF2S4mrtW7j5EK6IV5MAut5XEOJmty6yac=
 			</data>
 		</dict>
 		<key>Headers/WLCookieExtractor.h</key>
@@ -314,11 +283,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nhe9LijL1NymMh9hZX8bJrWzOTE=
+			gq8y63ln+vI7GV/dG8TDcXIrkQs=
 			</data>
 			<key>hash2</key>
 			<data>
-			h+oWS0tLwlLoQ/u6+wnV4/R+BNkCbJHDnSZVBhec0lU=
+			PUwIAQ1HbFhXPZm27yh8pMYjb6oiD3c6wWZfup5OLp8=
 			</data>
 		</dict>
 		<key>Headers/WLResponse.h</key>
@@ -376,59 +345,15 @@
 			htWxkkmcftuYPKyG+K2rnfbFDqRvCqa9ARFZpUITO+U=
 			</data>
 		</dict>
-		<key>Modules/IBMMobileFirstPlatformFoundation.swiftmodule/arm.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			f6eHo2K7uS536B954SD9i6RglL8=
-			</data>
-			<key>hash2</key>
-			<data>
-			j8zVPdSAKTyf/74XUoG5e4K4bpVRjvGMy2p7joUuAbY=
-			</data>
-		</dict>
-		<key>Modules/IBMMobileFirstPlatformFoundation.swiftmodule/arm.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4zJIvBJZ3905+Zeeq8wa38a2F8w=
-			</data>
-			<key>hash2</key>
-			<data>
-			eKRVlFwUIG3uVHHoH18Mh31CxLBIGi/rtEvzas859/E=
-			</data>
-		</dict>
-		<key>Modules/IBMMobileFirstPlatformFoundation.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7BUlQBrhUQ77wbgVsUxliml4eHA=
-			</data>
-			<key>hash2</key>
-			<data>
-			HsTmECpPnCMRxnb73uLJ1+KT7c6FmxT04MLIAz3OSiA=
-			</data>
-		</dict>
-		<key>Modules/IBMMobileFirstPlatformFoundation.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			d14tCWlK6GligJDk6YCjeEi8hEY=
-			</data>
-			<key>hash2</key>
-			<data>
-			c9VfLmoMhGGKezIOiecGng6gfCNnUOtlEW8bf5DYCko=
-			</data>
-		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zco3ZstpKlHnpbZPtF5tX0hzk+s=
+			V1D1PLP1UAT/wWs6n+c7l4CWvYY=
 			</data>
 			<key>hash2</key>
 			<data>
-			hGyjB+sgwB0kRn1UO5HpZYcM3PzwSZWj1VjrLp5XCfU=
+			+BlM+5WfZqHSRs6poidlBdmdXdBhqqk+66UsSaMt8Ks=
 			</data>
 		</dict>
 	</dict>

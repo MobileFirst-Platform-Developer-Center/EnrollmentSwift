@@ -25,7 +25,3 @@ framework module IBMMobileFirstPlatformFoundation { umbrella header "IBMMobileFi
 
 
 
-
-module IBMMobileFirstPlatformFoundation.Swift {
-    header "IBMMobileFirstPlatformFoundation-Swift.h"
-}

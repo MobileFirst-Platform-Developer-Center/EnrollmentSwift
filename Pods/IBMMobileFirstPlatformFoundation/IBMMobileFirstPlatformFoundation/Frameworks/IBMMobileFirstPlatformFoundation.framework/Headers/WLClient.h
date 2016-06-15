@@ -88,6 +88,29 @@ extern NSMutableDictionary *piggyBackData;
  */
 -(NSHTTPCookieStorage*)HTTPCookieStorage;
 
+
+/**
+ * This method uses the connection properties and the application ID from the worklight.plist file to initialize communication with the IBM MobileFirst Platform Server.
+ * The server checks the validity of the application version.
+ *
+ * If the server returns a successful response, the <code>onSuccess</code> method is called. If an error occurs, the <code>onFailure</code> method is called.
+ * @note This method must be called before any other WLClient method that calls the server, such as <code>logActivity</code> and <code>invokeProcedure.</code>
+ * @param delegate A class that conforms to the WLDelegate protocol.
+ */
+-(void) wlConnectWithDelegate:(id <WLDelegate>)delegate __deprecated;
+
+/**
+ * This method uses the connection properties and the application ID from the worklight.plist file to initialize communication with the IBM MobileFirst Platform Server.
+ * The server checks the validity of the application version.
+ * This method accepts a "timeout" key in its options parameter -  (NSNumber) Number of milliseconds to wait for the server response before the request times out.
+ *
+ * If the server returns a successful response, the <code>onSuccess</code> method is called. If an error occurs, the <code>onFailure</code> method is called.
+ * @note This method must be called before any other WLClient method that calls the server, such as <code>logActivity</code> and <code>invokeProcedure.</code>
+ * @param delegate A class that conforms to the WLDelegate protocol.
+ * @param options Optional, can be nil. Used to set the timeout while connecting to the server and/or to set the application userId which is used by Push service. In this dictionary the user puts key "timeout" (milliseconds) to set the timeout or the key "appUserId" (NSString) to set the application UserId.
+ */
+-(void) wlConnectWithDelegate:(id <WLDelegate>)delegate options:(NSDictionary *)options __deprecated;
+
 /**
  *  This method uses <code>NSURLConnection</code> to execute the provided <code>NSURLRequest</code>.
  *

@@ -1,1 +1,0 @@
-../../../../IBMMobileFirstPlatformFoundation/IBMMobileFirstPlatformFoundation/Frameworks/IBMMobileFirstPlatformFoundation.framework/Headers/IBMMobileFirstPlatformFoundation-Swift.h
