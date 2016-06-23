@@ -42,7 +42,6 @@ class HomeViewController: UIViewController, LoginViewControllerDelegate {
                 print("IsEnrolled error: \(error.description)")
             } else {
                 print("isEnrolled Success")
-                self.changeUIState("Hello, " + self.userName, buttonsState: false)
             }
         }
     }
@@ -52,12 +51,8 @@ class HomeViewController: UIViewController, LoginViewControllerDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showLoginPage), name: ACTION_USERLOGIN_CHALLENGE_RECEIVED, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showPinCodePopup(_:)), name: ACTION_PINCODE_CHALLENGE_RECEIVED, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(enrollAfterFailure(_:)), name: ACTION_PINCODE_CHALLENGE_FAILURE, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(isEnrolledLogoutSuccess), name: ACTION_ISENROLLED_LOGOUT_SUCCESS, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateUserName(_:)), name: ACTION_ISENROLLED_CHALLENGE_SUCCESS, object: nil)
-    }
-    
-    func updateUserName(notification: NSNotification){
-        self.userName = notification.userInfo!["displayName"] as! String
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateUI(_:)), name: ACTION_ISENROLLED_LOGOUT_SUCCESS, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateUI(_:)), name: ACTION_ISENROLLED_CHALLENGE_SUCCESS, object: nil)
     }
     
     func LoginViewControllerResponse(username: String){
@@ -206,9 +201,13 @@ class HomeViewController: UIViewController, LoginViewControllerDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    func isEnrolledLogoutSuccess(){
-        self.changeUIState("Hello, Guest", buttonsState: true)
-
+    func updateUI(notification: NSNotification){
+        if (notification.userInfo!["displayName"] != nil){
+            self.userName = notification.userInfo!["displayName"] as! String
+            self.changeUIState("Hello, " + self.userName, buttonsState: false)
+        } else {
+            self.changeUIState("Hello, Guest", buttonsState: true)
+        }
     }
     
     func changeUIState(helloUser: String, buttonsState: Bool){
