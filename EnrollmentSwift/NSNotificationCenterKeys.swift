@@ -28,5 +28,9 @@ let ACTION_PINCODE_CHALLENGE_CANCEL = "com.sample.enrollmentswift.notify.pincode
 let ACTION_PINCODE_LOGOUT_SUCCESS = "com.sample.enrollmentswift.notify.pincode.logout.success"
 let ACTION_PINCODE_CHALLENGE_FAILURE = "com.sample.enrollmentswift.notify.pincode.challenge.failure"
 
+let ACTION_ISENROLLED_CHALLENGE_SUCCESS = "com.sample.enrollmentswift.notify.isenrolled.challenge.success"
+let ACTION_ISENROLLED_LOGOUT_SUCCESS = "com.sample.enrollmentswift.notify.isenrolled.logout.success"
+
+
 let ACTION_LOGOUT = "com.sample.enrollmentswift.notify.logout"
 

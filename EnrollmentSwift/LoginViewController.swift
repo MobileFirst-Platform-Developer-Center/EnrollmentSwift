@@ -17,17 +17,23 @@
 import UIKit
 import IBMMobileFirstPlatformFoundation
 
+protocol LoginViewControllerDelegate {
+    func LoginViewControllerResponse(userName: String)
+}
+
 class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    
+    var delegate: LoginViewControllerDelegate?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated:true);
         self.navigationItem.title = "Enrollment"
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(popLoginPage), name: ACTION_USERLOGIN_CHALLENGE_SUCCESS, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(popLoginPage(_:)), name: ACTION_USERLOGIN_CHALLENGE_SUCCESS, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showError(_:)), name: ACTION_USERLOGIN_CHALLENGE_RECEIVED, object: nil)
 
     }
@@ -40,8 +46,8 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
-    func popLoginPage(){
+    func popLoginPage(notification: NSNotification){
+        self.delegate?.LoginViewControllerResponse(notification.userInfo!["displayName"] as! String)
         self.navigationController?.popViewControllerAnimated(true)
     }
     

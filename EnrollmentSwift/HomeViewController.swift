@@ -17,7 +17,7 @@
 import UIKit
 import IBMMobileFirstPlatformFoundation
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, LoginViewControllerDelegate {
 
     @IBOutlet weak var helloUserTxt: UILabel!
     @IBOutlet weak var resultTxt: UITextView!
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     var unenrollBtn:UIBarButtonItem!
     var enrollBtn:UIBarButtonItem!
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    var userName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +37,12 @@ class HomeViewController: UIViewController {
         
         unenrollBtn = UIBarButtonItem(title: "Unenroll", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.unenroll))
         
-        let request = WLResourceRequest(URL: NSURL(string: "/adapters/Enrollment/isEnrolled"), method: WLHttpMethodGet)
-        request.sendWithCompletionHandler { (response, error) in
+        WLAuthorizationManager.sharedInstance().obtainAccessTokenForScope("IsEnrolled") { (token, error) in
             if (error != nil){
-                print("isEnrolled error: \(error.description)")
-            } else if (!NSString(string: response.responseText!).boolValue){
-                print("isEnrolled response: \(response.responseText)")
+                print("IsEnrolled error: \(error.description)")
             } else {
-                print("isEnrolled response: \(response.responseText)")
-                self.changeUIState("Hello, " + self.defaults.stringForKey("displayName")!, buttonsState: false)
+                print("isEnrolled Success")
+                self.changeUIState("Hello, " + self.userName, buttonsState: false)
             }
         }
     }
@@ -55,10 +52,17 @@ class HomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showLoginPage), name: ACTION_USERLOGIN_CHALLENGE_RECEIVED, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showPinCodePopup(_:)), name: ACTION_PINCODE_CHALLENGE_RECEIVED, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(enrollAfterFailure(_:)), name: ACTION_PINCODE_CHALLENGE_FAILURE, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(isEnrolledLogout), name: ACTION_PINCODE_LOGOUT_SUCCESS, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(isEnrolledLogoutSuccess), name: ACTION_ISENROLLED_LOGOUT_SUCCESS, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateUserName(_:)), name: ACTION_ISENROLLED_CHALLENGE_SUCCESS, object: nil)
     }
     
-
+    func updateUserName(notification: NSNotification){
+        self.userName = notification.userInfo!["displayName"] as! String
+    }
+    
+    func LoginViewControllerResponse(username: String){
+        self.userName = username;
+    }
     
     func enroll(){
         self.resultTxt.text = ""
@@ -83,7 +87,7 @@ class HomeViewController: UIViewController {
             self.setPinCode(pinTextField.text!)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
-            self.unenroll()
+            NSNotificationCenter.defaultCenter().postNotificationName(ACTION_LOGOUT, object: self)
         }))
         self.presentViewController(alert,
                                    animated: true,
@@ -112,10 +116,17 @@ class HomeViewController: UIViewController {
                     print("setPinCode error: \(error.description)")
                 } else {
                     print("setPinCode status: \(response.status)")
-                    self.defaults.setObject(response.responseJSON["userName"] as! String, forKey: "displayName")
-                    self.changeUIState("Hello, " + self.defaults.stringForKey("displayName")!, buttonsState: false)
+                    self.changeUIState("Hello, " + self.userName, buttonsState: false)
                 }
             }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "login"{
+            let loginVC = (segue.destinationViewController as! LoginViewController)
+            loginVC.delegate = self
+    
         }
     }
     
@@ -195,16 +206,9 @@ class HomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    func isEnrolledLogout(){
-        print("IsEnrolled: logout")
-        WLAuthorizationManager.sharedInstance().logout("IsEnrolled") { (error) -> Void in
-            if (error != nil){
-                print("IsEnrolled: logout failure - \(error.description)")
-            } else {
-                print("IsEnrolled: logout success)")
-                self.changeUIState("Hello, Guest", buttonsState: true)
-            }
-        }
+    func isEnrolledLogoutSuccess(){
+        self.changeUIState("Hello, Guest", buttonsState: true)
+
     }
     
     func changeUIState(helloUser: String, buttonsState: Bool){

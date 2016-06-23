@@ -15,6 +15,7 @@
 		820F32801CD9044D00CACFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 820F327E1CD9044D00CACFBF /* LaunchScreen.storyboard */; };
 		8276AD0D1CD9057500A2A303 /* mfpclient.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8276AD0C1CD9057500A2A303 /* mfpclient.plist */; };
 		8276AD0F1CDA3D3600A2A303 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8276AD0E1CDA3D3600A2A303 /* LoginViewController.swift */; };
+		8290816C1D18269B00E09CA2 /* IsEnrolledChallengeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290816B1D18269B00E09CA2 /* IsEnrolledChallengeHandler.swift */; };
 		82C2FAA41CE0A98B005CADAC /* NSNotificationCenterKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2FAA31CE0A98B005CADAC /* NSNotificationCenterKeys.swift */; };
 		82C2FAA61CE0AB11005CADAC /* UserLoginChallengeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2FAA51CE0AB11005CADAC /* UserLoginChallengeHandler.swift */; };
 		82C2FAA81CE0E475005CADAC /* PinCodeChallengeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2FAA71CE0E475005CADAC /* PinCodeChallengeHandler.swift */; };
@@ -33,6 +34,7 @@
 		820F32811CD9044D00CACFBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8276AD0C1CD9057500A2A303 /* mfpclient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mfpclient.plist; sourceTree = "<group>"; };
 		8276AD0E1CDA3D3600A2A303 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8290816B1D18269B00E09CA2 /* IsEnrolledChallengeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsEnrolledChallengeHandler.swift; sourceTree = "<group>"; };
 		82C2FAA31CE0A98B005CADAC /* NSNotificationCenterKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterKeys.swift; sourceTree = "<group>"; };
 		82C2FAA51CE0AB11005CADAC /* UserLoginChallengeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginChallengeHandler.swift; sourceTree = "<group>"; };
 		82C2FAA71CE0E475005CADAC /* PinCodeChallengeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeChallengeHandler.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				8276AD0E1CDA3D3600A2A303 /* LoginViewController.swift */,
 				82C2FAA51CE0AB11005CADAC /* UserLoginChallengeHandler.swift */,
 				82C2FAA71CE0E475005CADAC /* PinCodeChallengeHandler.swift */,
+				8290816B1D18269B00E09CA2 /* IsEnrolledChallengeHandler.swift */,
 				820F32791CD9044D00CACFBF /* Main.storyboard */,
 				820F327C1CD9044D00CACFBF /* Assets.xcassets */,
 				820F327E1CD9044D00CACFBF /* LaunchScreen.storyboard */,
@@ -234,6 +237,7 @@
 				82C2FAA81CE0E475005CADAC /* PinCodeChallengeHandler.swift in Sources */,
 				82C2FAA41CE0A98B005CADAC /* NSNotificationCenterKeys.swift in Sources */,
 				820F32761CD9044D00CACFBF /* AppDelegate.swift in Sources */,
+				8290816C1D18269B00E09CA2 /* IsEnrolledChallengeHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

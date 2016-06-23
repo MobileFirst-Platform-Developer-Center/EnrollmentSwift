@@ -44,8 +44,8 @@ class UserLoginChallengeHandler : SecurityCheckChallengeHandler {
     override func handleSuccess(success: [NSObject : AnyObject]!) {
         print("\(self.challengeHandlerName): handleSuccess - \(success)")
         self.isChallenged = false
-        //NSUserDefaults.standardUserDefaults().setObject(success["user"]!["displayName"]! as! String, forKey: "displayName")
-        NSNotificationCenter.defaultCenter().postNotificationName(ACTION_USERLOGIN_CHALLENGE_SUCCESS , object: self)
+        let userDisplayName = success["user"]!["displayName"] as! String
+        NSNotificationCenter.defaultCenter().postNotificationName(ACTION_USERLOGIN_CHALLENGE_SUCCESS , object: self, userInfo: ["displayName":userDisplayName])
     }
     
     override func handleFailure(failure: [NSObject : AnyObject]!) {
