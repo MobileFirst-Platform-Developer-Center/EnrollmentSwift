@@ -20,6 +20,8 @@ https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authenticat
     - `unenroll` scope to `IsEnrolled` security check
     - `transactions` scope to `EnrollmentPinCode` and `IsEnrolled` security checks
 
+> **Tip:** you can update the bundled SDK by running the command `pod update` from the project's root folder.
+
 ### Supported Levels
 IBM MobileFirst Platform Foundation 8.0
 
