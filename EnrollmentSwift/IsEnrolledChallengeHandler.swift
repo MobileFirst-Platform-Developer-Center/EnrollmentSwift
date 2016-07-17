@@ -40,7 +40,7 @@ class IsEnrolledChallengeHandler : SecurityCheckChallengeHandler {
                 print("\(self.challengeHandlerName): logout failure - \(error.description)")
             } else {
                 print("\(self.challengeHandlerName): logout success)")
-                NSNotificationCenter.defaultCenter().postNotificationName(ACTION_ISENROLLED_LOGOUT_SUCCESS , object: self)
+                NSNotificationCenter.defaultCenter().postNotificationName(ACTION_ISENROLLED_LOGOUT_SUCCESS , object: self,userInfo: nil)
             }
         }
     }

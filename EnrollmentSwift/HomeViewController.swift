@@ -202,7 +202,7 @@ class HomeViewController: UIViewController, LoginViewControllerDelegate {
     }
     
     func updateUI(notification: NSNotification){
-        if (notification.userInfo!["displayName"] != nil){
+        if (notification.userInfo != nil){
             self.userName = notification.userInfo!["displayName"] as! String
             self.changeUIState("Hello, " + self.userName, buttonsState: false)
         } else {
