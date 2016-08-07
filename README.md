@@ -13,14 +13,13 @@ https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authenticat
  The Enrollment Security Check adapter can be found in https://github.com/MobileFirst-Platform-Developer-Center/SecurityCheckAdapters/tree/release80.
 
 2. From a command-line window, navigate to the project's root folder and run the commands: 
+ - `pod update` followed by `pod install` to add the MobileFirst SDK.
  - `mfpdev app register` to register the application.
  - `mfpdev app push` - to set the following scope mapings:
     - `setPinCode` scope to `EnrollmentUserLogin` security check
     - `accessRestricted` scope to `IsEnrolled` security check
     - `unenroll` scope to `IsEnrolled` security check
     - `transactions` scope to `EnrollmentPinCode` and `IsEnrolled` security checks
-
-> **Tip:** you can update the bundled SDK by running the command `pod update` from the project's root folder.
 
 ### Supported Levels
 IBM MobileFirst Platform Foundation 8.0
